@@ -57,7 +57,7 @@ def get_existing_books_id(books_list):
     books_ids = set()
     for books in books_list:
         # dictionary
-        books_ids.add(book['id'])
+        books_ids.add(books['id'])
     return books_ids
 
 #user registration
@@ -82,5 +82,24 @@ def register_user(user_dict):
     return True
 
 users_dict = load_user()
+print(users_dict)
 register_user(users_dict)
+
+def login_user(users_dict):
+    print("\n ------- Login User--------")
+    username=input("enter username: ").strip()
+    password=input("enter password: ").strip()
+
+    if username in users_dict and users_dict[username] == password:
+        print(f"Welcome! {username.capitalize()}")
+        return username
+    else:
+        print("invalid username or password")
+        return None
+
+
+login_user(users_dict)
+
+# 
+    
 
